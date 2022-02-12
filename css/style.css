@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #524A4E;
+    background-color: #1572A1;
 }
 
 .row {
@@ -33,7 +33,7 @@ h4 {
     outline: none;
     height: 50px;
     width: 100%;
-    background-color: #524A4E;
+    background-color: #1572A1;
     color: white;
     border-radius: 4px;
     font-weight: bold;
@@ -42,8 +42,11 @@ h4 {
 .btn:hover {
     background: white;
     border: 1px solid;
-    color: #524A4E;
+    color: #1572A1;
 }
 
 
-/*Media Queries*/
+/*Add Task*/
+.addTask {
+    background: #333;
+}
