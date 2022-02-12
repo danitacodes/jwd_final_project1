@@ -50,3 +50,7 @@ h4 {
 .addTask {
     background: #333;
 }
+
+.form-row {
+    justify-content: center;
+}
