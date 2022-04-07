@@ -1,18 +1,23 @@
+//create similar task objects
 class taskManager {
+    //used to create new instance of taskManager class
     constructor(tasks, currentId) {
         this.tasks=[];
         this.currentId = 0
     }
-    addTask() {
-        let name = name;
-        let description = description;
-        let assignedTo = assignedTo;
-        let dueDate = dueDate;
-        let status = status;
+    //method to ccreate task
+    addTask(name, description, assignedTo, dueDate, status) {
+        this.name = name;
+        this.description = description;
+        this.assignedTo = assignedTo;
+        this.dueDate = dueDate;
+        this.status = status;
+
+        //increment task Id
         this.currentId++;
+        
+
+        this.tasks.push(name, description, assignedTo, dueDate, status)
     }
- addTask(newTask) {
-     this.tasks.push(newTask)
- }   
 }
 
