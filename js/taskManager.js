@@ -11,6 +11,8 @@ class taskManager {
         let status = status;
         this.currentId++;
     }
-    
+ addTask(newTask) {
+     this.tasks.push(newTask)
+ }   
 }
 
