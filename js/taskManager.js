@@ -1,12 +1,13 @@
 //create similar task objects
 class taskManager {
     //used to create new instance of taskManager class
-    constructor(currentId) {
+    constructor(tasks, currentId) {
         this.tasks=[];
         this.currentId = 0
     }
     //method to create task
     addTask(name, description, assignedTo, dueDate, status) {
+        //Get UI elements
         const task = {
             //increment task Id
             id: this.currentId++,
@@ -26,8 +27,10 @@ function submitTask() {
     event.preventDefault();
     newTask = new taskManager();
     newTask.addTask();
+    document.querySelector('#taskName').value = '';
+    document.querySelector('#description').value = '';
+    document.querySelector('#assignedTo').value = '';
+    document.querySelector('#Test_DatetimeLocal').value = '';
 }
 
-// function resetForm() {
-//     document.getElementById('#newTaskForm').reset();
-// }
+
