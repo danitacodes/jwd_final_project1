@@ -34,3 +34,7 @@
 // task.addTask('Me', 'eat', 'Us', '04-06-2022', 'TODO');
 // task.addTask('Her','sleep', 'Me', '04-07-2022', 'TODO');
 // console.log(task)
+
+
+// let taskHtml = createTaskHtml('eat', 'eating', 'Me', 'TODO', '04-08-2022');
+// console.log(taskHtml)
