@@ -1,40 +1,19 @@
-// // Select New Task Page
-// const newTaskPage = document.querySelector('#addTask');
+let task = new taskManager(0);
 
-// // Add submit event listener
-// newTaskPage.addEventListener('submit', (event) => {
-//     // Stop default form action
-//     event.preventDefault();
+document.querySelector('#taskForm').addEventListener('submit', (e) => {
+    //Get form values
+    const taskName = document.querySelector('#taskName').value;
+    const description = document.querySelector('#description').value;
+    const assignedTo = document.querySelector('#assignedTo').value;
+    const dueDate = document.querySelector('#Test_DatetimeLocal').value;
 
-//     // Select Inputs from Task Page
-//     const newTaskNameInput = document.querySelector('#newTaskName');
-//     const newTaskDescription = document.querySelector('#newTaskDescripton');
-//     const newTaskAssignment = document.querySelector('#newTaskAssignment');
-//     const newTaskDueDate = document.querySelector('#Test_DatetimeLocal');
+    //Add tasks
+    taskManager.addTask(name, description, assignedTo, dueDate);
 
-//     // Get value of inputs
-//     const name = newTaskNameInput.value;
-//     const description = newTaskDescription.value;
-//     const assignedTo = newTaskAssignment.value;
-//     const dueDate = newTaskDueDate.value;
-//     if(!validFormFieldInput(name)) {
-//         errorMessage.innerHTML = 'Invalid name entered.';
-//         errorMessage.style.display = 'block'
-//     } else {
-//         errorMessage.style.display = 'none'
-//     }
+     //Clear form values
+     document.querySelector('#taskName').value = '';
+     document.querySelector('#description').value = '';
+     document.querySelector('#assignedTo').value = '';
+     document.querySelector('#Test_DatetimeLocal').value = '';
+})
 
-// })
-
-// function validFormFieldInput(data) {
-//     return data !== null && data !== '';
-// }
-
-// const task = new taskManager();
-// task.addTask('Me', 'eat', 'Us', '04-06-2022', 'TODO');
-// task.addTask('Her','sleep', 'Me', '04-07-2022', 'TODO');
-// console.log(task)
-
-
-// let taskHtml = createTaskHtml('eat', 'eating', 'Me', 'TODO', '04-08-2022');
-// console.log(taskHtml)

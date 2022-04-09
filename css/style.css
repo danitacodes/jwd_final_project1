@@ -24,6 +24,12 @@ h1 {
     text-align: center;
 }
 
+h5 {
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
 h4 {
     font-family: Poppins, sans-serif;
     font-weight: light;
@@ -34,23 +40,35 @@ label {
     font-family: Poppins, sans-serif;
 }
 
+.left-btn {
+    float: left;
+}
+
+.right-btn {
+    float: right;
+}
+
 .btn {
-    border: none;
+    border: 1px solid;
     outline: none;
-    height: 50px;
     width: 100%;
     background-color: #1C658C;
-    color: white;
+    color: #D8D2CB;
     border-radius: 4px;
     font-weight: bold;
+    font-family: Poppins, sans-serif;
 }
 
 .btn:hover {
-    background: white;
+    background: #D8D2CB;
     border: 1px solid;
     color: #1C658C;
 }
 
 .form-row {
     justify-content: center;
+}
+
+li{
+    list-style: none;
 }
