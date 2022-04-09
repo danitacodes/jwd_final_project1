@@ -5,7 +5,7 @@ class TaskManager {
         this.currentId = currentId;
     }
 
-    //Adds task method
+    //Add tasks method
     addTask(name, description, assignedTo, dueDate, status) {
         //Get UI elements
 
@@ -17,11 +17,11 @@ class TaskManager {
             dueDate: dueDate,
             status: 'TODO'
         };
-        
+        //Add new task to previous tasks
         this.tasks.push(task);
     }
 
-    //Render tasks
+    //Add task in UI
     render() {
         //Create tasks array
         const tasksHtmlList = [];
@@ -49,4 +49,38 @@ class TaskManager {
         tasksList.innerHTML = tasksHtml;
 
     }
-}
+    //Error Messages
+    showAlert(message, className) {
+        const div = document.createElement('div');
+        div.className =`alert alert-${className}`;
+        div.appendChild(document.createTextNode(message));
+        const container = document.querySelector('.holder');
+        const form = document.querySelector('#taskForm');
+        container.insertBefore(div, form);
+        //Make warning go away
+        setTimeout(() => document.querySelector('.alert').remove(), 5000);
+    }
+
+    //Delete Task
+    deleteTask(el) {
+        if(el.classList.contains('delete')) {
+            el.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+        }
+    }
+
+    //Local Storage
+    saveTask() {
+        //Create JSON string for tasks
+        let tasksJson = JSON.stringify(this.tasks);
+
+        //Store tasks JSON string in local storage
+        localStorage.setItem('tasks', tasksJson);
+
+        //Convert currentId to string
+        const currentId = String(this.currentId);
+
+        //Store currentId in local storage
+        localStorage.setItem('currentId', currentId);
+    }
+
+    }

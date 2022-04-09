@@ -3,32 +3,49 @@ const taskManager = new TaskManager(0);
 const taskForm = document.querySelector('#taskForm');
  
 taskForm.addEventListener('submit', (event) => {
+    //prevent default
     event.preventDefault();
  
+    //Gets Form Elements
     const newTaskName = document.querySelector('#taskName');
     const newDescription = document.querySelector('#description');
     const newAssignedTo = document.querySelector('#assignedTo');
     const newDueDate = document.querySelector('#Test_DatetimeLocal');
- 
-    /*
-        Validation code here
-    */
- 
+
+    //Gets Form Element Values
     const taskName = newTaskName.value;
     const description= newDescription.value;
     const assignedTo= newAssignedTo.value;
     const dueDate = newDueDate.value;
  
-    taskManager.addTask(taskName, description, assignedTo, dueDate);
+    //Validation
+    if(taskName === '' || description === '' || assignedTo === '' || dueDate === '') {
+        taskManager.showAlert('Please complete all inputs', 'danger')
+    } else {
+         //Adds Tasks
+        taskManager.addTask(taskName, description, assignedTo, dueDate);
  
-    // Render the tasks
-    taskManager.render();
+        // Render the tasks
+        taskManager.render();
+
+        //Task Added Message
+        taskManager.showAlert('Task Added', 'success')
  
-    //Clear values after input
-    document.querySelector('#taskName').value = '';
-    document.querySelector('#description').value = '';
-    document.querySelector('#assignedTo').value = '';
-    document.querySelector('#Test_DatetimeLocal').value = '';
+        //Clear values after input
+        document.querySelector('#taskName').value = '';
+        document.querySelector('#description').value = '';
+        document.querySelector('#assignedTo').value = '';
+        document.querySelector('#Test_DatetimeLocal').value = '';
+    }
+    
+    //Save Tasks
+    taskManager.saveTask();
+
+    //Delete Tasks
+    document.querySelector('#tasksList').addEventListener('click', (e) =>{
+        taskManager.deleteTask(e.target)
+    });
+   
 });
  
 //Create inner html for tasks
@@ -44,8 +61,7 @@ const createTaskHtml = (name, description, assignedTo, status, dueDate) => `
                 <p class="card-text">Assigned To: ${assignedTo}</p>
                 <p class="card-text">Status: ${status}</p>
                 <p class="card-text">Due Date: ${dueDate}</p>
-                <a href="#" class="btn mr-2"><i class="fa-solid fa-pen-to-square"></i></a>
-                <a href="#" class="btn "><i class="fa-solid fa-trash"></i></a>
+                <a href="#" class="btn delete"><i class="fa-solid fa-trash"></i></a>
             </div>
         </div>
     </div>
