@@ -66,6 +66,7 @@ class TaskManager {
         if(el.classList.contains('delete')) {
             el.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
         }
+        
     }
 
     //Local Storage
