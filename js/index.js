@@ -39,14 +39,14 @@ taskForm.addEventListener('submit', (event) => {
     }
     
     //Save Tasks
-    taskManager.saveTask();
-    
-    //Delete Tasks
+    taskManager.saveTask()
+   
+});
+
+//Delete Tasks
     document.querySelector('#tasksList').addEventListener('click', (e) =>{
         taskManager.deleteTask(e.target)
     });
-   
-});
  
 //Create inner html for tasks
 const createTaskHtml = (name, description, assignedTo, status, dueDate) => `
@@ -59,9 +59,9 @@ const createTaskHtml = (name, description, assignedTo, status, dueDate) => `
                 <p class="card-text">Task Name: ${name}</p>
                 <p class="card-text">Task Description: ${description}</p>
                 <p class="card-text">Assigned To: ${assignedTo}</p>
-                <p class="card-text">Status: ${status}</p>
+                <p id="statusChange" class="card-text">Status: ${status}</p>
                 <p class="card-text">Due Date: ${dueDate}</p>
-                <a href="#" class="btn mr-2 completed"><i class="fa-solid fa-check"></i></a>
+                <a href="#" class="btn mr-2 completed"><i class="fa-solid fa-pen-to-square"></i></a>
                 <a href="#" class="btn delete"><i class="fa-solid fa-trash"></i></a>
             </div>
         </div>
@@ -69,3 +69,4 @@ const createTaskHtml = (name, description, assignedTo, status, dueDate) => `
 </li>
  `
 
+//Reset button

@@ -66,9 +66,20 @@ class TaskManager {
         if(el.classList.contains('delete')) {
             el.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
         }
-        
     }
 
+    //Get Task
+    getTasksById(taskId) {
+        let currentTask;
+
+        for (let i = 0; i < this.tasks.length; i++) {
+            const task = this.tasks[i];
+
+            if(task.id === taskId) {
+                currentTask = task;
+            }
+        }
+    }
     //Local Storage
     saveTask() {
         //Create JSON string for tasks
@@ -84,4 +95,10 @@ class TaskManager {
         localStorage.setItem('currentId', currentId);
     }
 
+    }
+
+    //Select Value
+    function getSelectedValue () {
+        let selectedValue = document.getElementById('#status').ariaValueMax;
+        console.log(selectedValue);
     }
