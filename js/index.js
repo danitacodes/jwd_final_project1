@@ -64,6 +64,7 @@ const createTaskHtml = (name, description, assignedTo, status, dueDate) => `
                           <div class="col-sm-8">
                             <select id="status" class="form-select">
                               <option selected>Select</option>
+                              <option value="TODO" selected>To Do</option>
                               <option value="Done">Done</option>
                               </select>
                           </div>
