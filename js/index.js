@@ -59,7 +59,15 @@ const createTaskHtml = (name, description, assignedTo, status, dueDate) => `
                 <p class="card-text">Task Name: ${name}</p>
                 <p class="card-text">Task Description: ${description}</p>
                 <p class="card-text">Assigned To: ${assignedTo}</p>
-                <p id="statusChange" class="card-text">Status: ${status}</p>
+                <div class="form-group row">
+                          <label for="status" class="col-form-label col-sm-4">Status</label>
+                          <div class="col-sm-8">
+                            <select id="status" class="form-select">
+                              <option selected>Select</option>
+                              <option value="Done">Done</option>
+                              </select>
+                          </div>
+                        </div>
                 <p class="card-text">Due Date: ${dueDate}</p>
                 <a href="#" class="btn mr-2 completed"><i class="fa-solid fa-pen-to-square"></i></a>
                 <a href="#" class="btn delete"><i class="fa-solid fa-trash"></i></a>

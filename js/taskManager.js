@@ -5,6 +5,16 @@ class TaskManager {
         this.currentId = currentId;
     }
 
+    //Get status
+    // get status () {
+    //     return (this.status)
+    // }
+
+    //Set status
+    // set status (taskStatus) {
+    //     this.status = taskStatus;
+    // }
+
     //Add tasks method
     addTask(name, description, assignedTo, dueDate, status) {
         //Get UI elements
@@ -15,7 +25,7 @@ class TaskManager {
             description: description,
             assignedTo: assignedTo,
             dueDate: dueDate,
-            status: 'TODO'
+            status: status
         };
         //Add new task to previous tasks
         this.tasks.push(task);
@@ -80,6 +90,14 @@ class TaskManager {
             }
         }
     }
+
+    //Change Status
+    // changeStatus(taskId, taskStatus) {
+    //     const index = taskStatus.findIndex(e => e.id===taskId);
+    //     if (index === -1) throw(new Error('not found error'));
+    //     else return(taskStatus[index]);
+    // }
+
     //Local Storage
     saveTask() {
         //Create JSON string for tasks
