@@ -1,4 +1,8 @@
 const taskManager = new TaskManager(0);
+
+taskManager.load();
+
+taskManager.render();
  
 const taskForm = document.querySelector('#taskForm');
  
@@ -13,17 +17,20 @@ taskForm.addEventListener('submit', (event) => {
     const newDueDate = document.querySelector('#Test_DatetimeLocal');
 
     //Gets Form Element Values
-    const taskName = newTaskName.value;
+    const name = newTaskName.value;
     const description= newDescription.value;
     const assignedTo= newAssignedTo.value;
     const dueDate = newDueDate.value;
  
     //Validation
-    if(taskName === '' || description === '' || assignedTo === '' || dueDate === '') {
+    if(name === '' || description === '' || assignedTo === '' || dueDate === '') {
         taskManager.showAlert('Please complete all inputs', 'danger')
     } else {
          //Adds Tasks
-        taskManager.addTask(taskName, description, assignedTo, dueDate);
+        taskManager.addTask(name, description, assignedTo, dueDate);
+
+        //Save Tasks
+        taskManager.saveTask()
  
         // Render the tasks
         taskManager.render();
@@ -38,34 +45,42 @@ taskForm.addEventListener('submit', (event) => {
         document.querySelector('#Test_DatetimeLocal').value = '';
     }
     
-    //Save Tasks
-    taskManager.saveTask()
-   
 });
 
-//Delete Tasks
-    document.querySelector('#tasksList').addEventListener('click', (e) =>{
-        taskManager.deleteTask(e.target)
-    });
- 
-//Create inner html for tasks
-const createTaskHtml = (name, description, assignedTo, status, dueDate) => `
-<li class="list-group-item">
-    <div class="col-md-4 mb-3">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Task</h5>
-                <p id="id" class="card-text">Task Id</p>
-                <p class="card-text">Task Name: ${name}</p>
-                <p class="card-text">Task Description: ${description}</p>
-                <p class="card-text">Assigned To: ${assignedTo}</p>
-                <p class="card-text">Due Date: ${dueDate}</p>
-                <a href="#" class="btn mr-2 completed ${status === 'TODO' ? 'visible' : 'invivisble'}"><i class="fa-solid fa-pen-to-square"></i></a>
-                <a href="#" class="btn delete"><i class="fa-solid fa-trash"></i></a>
-            </div>
-        </div>
-    </div>
-</li>
- `
+//Status Check
+const tasksList = document.querySelector('#tasksList');
 
-//Reset button
+tasksList.addEventListener('click', (event) => {
+    //Complete button checker
+    if (event.target.classList.contains('done')) {
+        const taskParent = event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+        
+        const taskId = Number(taskParent.dataset.taskId);
+
+        const task = taskManager.getTasksById(taskId);
+
+        task.status = 'DONE';
+
+        taskManager.saveTask();
+
+        taskManager.render();
+    }
+
+    //Delete Button checker
+    if (event.target.classList.contains('deleteBtn')) {
+
+        const taskParent = event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+
+        console.log(taskParent)
+
+        const taskId = Number(taskParent.dataset.taskId);
+
+        taskManager.deleteTask(taskId);
+
+        taskManager.saveTask();
+
+        taskManager.render();
+    }
+})
+
+localStorage.clear();
