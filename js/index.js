@@ -83,4 +83,3 @@ tasksList.addEventListener('click', (event) => {
     }
 })
 
-localStorage.clear();

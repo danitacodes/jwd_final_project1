@@ -7,7 +7,6 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
                 <div>
                     <span class="badge ${status === 'TODO' ? 'badge-danger' : 'badge-success'}">${status}</span>
                  </div>
-                <h5 class="card-title">Task ${id}</h5>
                 <p class="card-text">Task Name: ${name}</p>
                 <p class="card-text">Task Description: ${description}</p>
                 <p class="card-text">Assigned To: ${assignedTo}</p>
