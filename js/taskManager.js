@@ -5,8 +5,9 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <div>
-                    <span class="badge ${status === 'TODO' ? 'badge-danger' : 'badge-success'}">${status}</span>
+                    <span class="badge ${status === 'TODO' ? 'badge-info' : 'badge-success'}">${status}</span>
                  </div>
+                 <br>
                 <p class="card-text">Task Name: ${name}</p>
                 <p class="card-text">Task Description: ${description}</p>
                 <p class="card-text">Assigned To: ${assignedTo}</p>
@@ -61,7 +62,6 @@ class TaskManager {
                 //Add task to newTasks array
                 newTasks.push(task);
             }
-
         }
 
         //Set this.tasks to newTasks
