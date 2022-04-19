@@ -52,17 +52,17 @@ label {
     border: 1px solid;
     outline: none;
     width: 100%;
-    background-color: #1C658C;
-    color: #D8D2CB;
+    background-color: #dcafa9;
+    color: #8d8b8c;
     border-radius: 4px;
     font-weight: bold;
     font-family: Poppins, sans-serif;
 }
 
 .btn:hover {
-    background: #D8D2CB;
+    background: #8d8b8c;
     border: 1px solid;
-    color: #1C658C;
+    color: #dcafa9;
 }
 
 .form-row {
@@ -71,4 +71,16 @@ label {
 
 li{
     list-style: none;
+}
+
+footer {
+    text-align: center;
+}
+
+.card-body {
+    background-color: #e9e8e5;
+}
+
+.badge {
+    background-color: #dcafa9;
 }
